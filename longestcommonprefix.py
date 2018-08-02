@@ -60,3 +60,35 @@ class Solution:
 
 test1 = Solution().longestCommonPrefix(["flower","flow","flight"])
 print(test1)
+
+"""
+OTHER SOLUTIONS: 
+
+Here they have used range function to loop with integer - "length" of first string, 
+then looping through the list from second string onwards, 
+to see if the character in other string based on the iteration is same as the first string.
+When the if returns false, then they capture the string to the length the iteration went on for. 
+
+if not strs:
+       return ""
+for i in range(len(strs[0])):
+       for string in strs[1:]:
+             if i >= len(string) or string[i] != strs[0][i]:
+                  return strs[0][:i]
+       return strs[0]
+
+Here they have used min method of string, but in this case on the list with option length. 
+Then performed enmeration loop, through that string, while looping through other strings in the list
+to check if the character on the other strings match first, when not found
+return the number of character - iterations for the shortest string.
+
+if not strs:
+       return ""
+shortest = min(strs,key=len)
+for i, ch in enumerate(shortest):
+       for other in strs:
+             if other[i] != ch:
+                  return shortest[:i]
+       return shortest
+
+"""
